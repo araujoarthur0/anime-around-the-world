@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Anime Around the World</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Antic+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+</head>
+
+<body>
+    <span id="page-title">Anime Around the World</span>
+    <div id="mapid"></div>
+</body>
+
+<script>
+    $(document).ready(() => {
+        var mymap = L.map('mapid').setView([10, 0], 3);
+        var bounds = [
+            [-85, 180], // Southwest coordinates
+            [85, -180] // Northeast coordinates
+        ];
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            minZoom: 2,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: 'pk.eyJ1IjoiYXJhdWpvYXJ0aHVyMCIsImEiOiJja2R0aW5ocWMwNHRqMnJuc29jbHpjdWk5In0.T8Z-GBPqjhJYc1IJGahdJA'
+        }).addTo(mymap);
+        mymap.setMaxBounds(bounds);
+        mymap.on('drag', function() {
+            mymap.panInsideBounds(bounds, {
+                animate: false
+            });
+        });
+        var greenIcon = L.divIcon({
+            className: 'my-div-icon',
+            html: '<img class="my-div-image" src="banana.png"/>' +
+                '<span class="my-div-span">Banana Fish</span>',
+
+            iconSize: [50, 50], // size of the icon
+            iconAnchor: [25, 25], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, -25], // point from which the popup should open relative to the iconAnchor
+        });
+
+        var circle = L.marker([40.508, -77.11], {
+            icon: greenIcon
+        }).addTo(mymap);
+        circle.bindPopup("I am a circle.");
+
+        $.get(".", function(data) {
+            console.log(data);
+        });
+    });
+</script>
+
+</html>

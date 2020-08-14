@@ -1,0 +1,41 @@
+body {
+    overflow: hidden;
+}
+
+.my-div-image {
+    width: 50px;
+    height: 50px;
+}
+
+.my-div-span {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    background: #ffffffba;
+    margin-top: -5px;
+    box-shadow: 0 0 10px 0em #ffffff;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#page-title {
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    z-index: 1;
+    font-family: 'Antic Slab', serif;
+    text-shadow: #6d6d6d8c 2px 2px 2px;
+    font-weight: bold;
+    font-size: 25px;
+    user-select: none;
+}
+
+#mapid {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+}

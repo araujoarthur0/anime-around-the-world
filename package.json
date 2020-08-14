@@ -1,0 +1,22 @@
+{
+    "name": "anime-around-the-world",
+    "version": "1.0.0",
+    "description": "Interactive open-source community built map showing how your favorite anime is spread around the world.",
+    "main": "index.html",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/araujoarthur0/anime-around-the-world.git"
+    },
+    "author": "araujoarthur0",
+    "license": "GPL3.0",
+    "bugs": {
+        "url": "https://github.com/araujoarthur0/anime-around-the-world/issues"
+    },
+    "homepage": "https://github.com/araujoarthur0/anime-around-the-world#readme",
+    "dependencies": {
+        "leaflet": "^1.6.0"
+    }
+}
